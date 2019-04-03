@@ -95,7 +95,8 @@ def predict_metrics(pd_dict, prediction_range=1):
             print("Fitting the train_frame")
             m.fit(train_frame)
 
-            future = m.make_future_dataframe(periods=int(PREDICT_DURATION),freq="1MIN")
+            #future = m.make_future_dataframe(periods=int(PREDICT_DURATION),freq="1MIN")
+            future = m.make_future_dataframe(periods=180,freq="1MIN")
 
             forecast = m.predict(future)
 
