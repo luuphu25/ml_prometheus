@@ -96,7 +96,7 @@ def predict_metrics(pd_dict, prediction_range=1):
             m.fit(train_frame)
 
             #future = m.make_future_dataframe(periods=int(PREDICT_DURATION),freq="1MIN")
-            future = m.make_future_dataframe(periods=180,freq="1MIN")
+            future = m.make_future_dataframe(periods=540,freq="1MIN")
 
             forecast = m.predict(future)
 
@@ -127,7 +127,7 @@ def predict_metrics(pd_dict, prediction_range=1):
 url = 'http://61.28.251.119:9090'
 metric_name = 'mem_used'
 print("Get data of metric {}".format(metric_name))
-data_window = 3
+data_window = 1
 # Chunk size, download the complete data, but in smaller chunks, should be less than or equal to DATA_SIZE
 chunk_size = str(os.getenv('CHUNK_SIZE','2h'))
 
